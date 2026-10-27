@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dniq06vsdavp1"]
+
+[ext_resource type="Script" uid="uid://c4heccinxc1bu" path="res://caja.gd" id="1_a7ipy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a7ipy"]
+load_path = "res://.godot/imported/caja.jpg-31a0f78cc7e8b9861d1acb3fb03de219.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7ipy"]
+albedo_color = Color(0.72156864, 0.47843137, 0.2784314, 1)
+albedo_texture = SubResource("CompressedTexture2D_a7ipy")
+
+[sub_resource type="BoxMesh" id="BoxMesh_rmtss"]
+material = SubResource("StandardMaterial3D_a7ipy")
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw3lg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xu3i"]
+
+[node name="Caja" type="Area3D" unique_id=579943044]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+script = ExtResource("1_a7ipy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1573761924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_rmtss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=22259338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=496682659]
+script = ExtResource("1_a7ipy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1993690373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_5xu3i")

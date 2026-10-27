@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dom446qauxjsv"]
+
+[ext_resource type="Script" uid="uid://bsbmh0x4a2rav" path="res://npc.gd" id="1_ideak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw3lg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lrw2j"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lrw2j"]
+radius = 2.5
+
+[node name="NPC" type="StaticBody3D" unique_id=2031066429]
+script = ExtResource("1_ideak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1957912062]
+shape = SubResource("CapsuleShape3D_iw3lg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=960782313]
+mesh = SubResource("CapsuleMesh_lrw2j")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=606409873]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=219827180]
+shape = SubResource("SphereShape3D_lrw2j")

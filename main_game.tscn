@@ -1,0 +1,288 @@
+[gd_scene format=3 uid="uid://ccy42ykel7wb4"]
+
+[ext_resource type="Script" uid="uid://cyochq367rt4s" path="res://main_game.gd" id="1_1oj5k"]
+[ext_resource type="PackedScene" uid="uid://dom446qauxjsv" path="res://npc.tscn" id="2_2pltu"]
+[ext_resource type="Script" uid="uid://dk8ws5t723jt1" path="res://area_3d.gd" id="2_ykeeq"]
+[ext_resource type="Script" uid="uid://c31lnd1k56dp8" path="res://player.gd" id="2_yx7mw"]
+[ext_resource type="PackedScene" uid="uid://dkr2jyrh3tx03" path="res://Copy of Camion.glb" id="3_dugkq"]
+[ext_resource type="Script" uid="uid://dnerewe4vc2u0" path="res://generador_cajas.gd" id="4_6bm6p"]
+[ext_resource type="Script" uid="uid://cw6qq684j45qq" path="res://luz_almacen.gd" id="5_f52ns"]
+[ext_resource type="PackedScene" uid="uid://dr24ol14n2w1v" path="res://Don_Mateo.glb" id="7_l5ukw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3poeu"]
+albedo_color = Color(0.58431375, 0.64705884, 0.6509804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iw3lg"]
+material = SubResource("StandardMaterial3D_3poeu")
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrw2j"]
+size = Vector3(4, 3, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7mtq"]
+albedo_color = Color(0.5404691, 0.53987384, 0.5525086, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmtss"]
+size = Vector3(2.2364502, 1.9804382, 4.6934814)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrw2j"]
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_li7mn"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iw3lg"]
+size = Vector3(2.1381805, 1.3182373, 5.8854756)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xu3i"]
+size = Vector3(2.1420288, 1.9628906, 4.1846924)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7ipy"]
+albedo_color = Color(0.72156864, 0.47843137, 0.2784314, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5xu3i"]
+material = SubResource("StandardMaterial3D_a7ipy")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw3lg"]
+
+[node name="MainGame" type="Node3D" unique_id=2061055438]
+script = ExtResource("1_1oj5k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2109723240]
+
+[node name="BtnDilema" type="Button" parent="CanvasLayer" unique_id=1932838237]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BtnAct3" type="Button" parent="CanvasLayer" unique_id=1101857061]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1101133576]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblEmpresa" type="Label" parent="CanvasLayer/Panel" unique_id=1115378823]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BtnAct2" type="Button" parent="CanvasLayer" unique_id=220245044]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BtnAct1" type="Button" parent="CanvasLayer" unique_id=544483687]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="LblLog" type="Label" parent="CanvasLayer" unique_id=2125209194]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LblPersonal" type="Label" parent="CanvasLayer" unique_id=536761885]
+offset_left = 647.0
+offset_top = 2.0
+offset_right = 687.0
+offset_bottom = 25.0
+
+[node name="LblSemanas" type="Label" parent="CanvasLayer" unique_id=941280274]
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 112.0
+
+[node name="LblMes" type="Label" parent="CanvasLayer" unique_id=1352612250]
+offset_top = 119.0
+offset_right = 40.0
+offset_bottom = 142.0
+
+[node name="LblReputacion" type="Label" parent="CanvasLayer" unique_id=1518822090]
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+
+[node name="LblHonor" type="Label" parent="CanvasLayer" unique_id=794354976]
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 53.0
+
+[node name="LblDinero" type="Label" parent="CanvasLayer" unique_id=579964493]
+offset_top = 619.0
+offset_right = 40.0
+offset_bottom = 642.0
+
+[node name="NPC_Carlos" parent="." unique_id=2031066429 instance=ExtResource("2_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5661993, 0.8041191, 23.224674)
+mes_activacion = 4
+nombre_npc = "Carlos"
+
+[node name="Almacen" type="Node3D" parent="." unique_id=794810618]
+
+[node name="Suelo" type="StaticBody3D" parent="Almacen" unique_id=273935832]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Suelo" unique_id=320815115]
+mesh = SubResource("BoxMesh_iw3lg")
+
+[node name="Camion3" type="Node3D" parent="Almacen/Suelo/MeshInstance3D" unique_id=1049685395]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Suelo/MeshInstance3D/Camion3" unique_id=906722575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8959098, -1.5285382, -0.89017296)
+mesh = SubResource("BoxMesh_lrw2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7mtq")
+
+[node name="Area3D" type="Area3D" parent="Almacen/Suelo/MeshInstance3D/Camion3" unique_id=1746813773]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Suelo/MeshInstance3D/Camion3/Area3D" unique_id=1446532072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.71041393, 0.8139286, 0.45319128)
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Suelo" unique_id=1045569376]
+shape = SubResource("BoxShape3D_lrw2j")
+
+[node name="Camion" type="Node3D" parent="Almacen" unique_id=39705205]
+transform = Transform3D(-0.99999213, 0, -0.0039683394, 0, 1, 0, 0.0039683394, 0, -0.99999213, 0.031773448, 1.5, -11.454435)
+rotation_edit_mode = 2
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion" unique_id=426612667]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion/Area3D" unique_id=1101917513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30913043, 0.7935095, -2.1353054)
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="Tinkercad GLTF Scene" parent="Almacen/Camion" unique_id=333895224 instance=ExtResource("3_dugkq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1.4149432, 0)
+
+[node name="Mesh_Mesh_head_geo_001_lambert2SG_001" parent="Almacen/Camion/Tinkercad GLTF Scene/Node" parent_id_path=PackedInt32Array(333895224, 2089924429) index="0" unique_id=970085284]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.323489e-23, 0, -1.323489e-23, 1, -0.021362305, -5.383133, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_li7mn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Almacen/Camion" unique_id=1988902894]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion/StaticBody3D" unique_id=358924264]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.29271278, 0.9062605, -0.35894775)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Almacen/Camion/StaticBody3D" unique_id=939219971]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.3371123, 0.7387724, -0.9571285)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="Area3D2" type="Area3D" parent="Almacen/Camion" unique_id=1067610129]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion/Area3D2" unique_id=452947135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26161814, 0.67677975, -2.0906258)
+shape = SubResource("BoxShape3D_5xu3i")
+
+[node name="Camion2" type="Node3D" parent="Almacen" unique_id=1080426980]
+transform = Transform3D(-0.9998413, 0, -0.017818073, 0, 1, 0, 0.017818073, 0, -0.9998413, 9.301562, 1.6800308, -11.526472)
+rotation_edit_mode = 2
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion2" unique_id=941312536]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion2/Area3D" unique_id=1925021963]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30913043, 0.7935095, -2.1353054)
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="Tinkercad GLTF Scene" parent="Almacen/Camion2" unique_id=1575906814 instance=ExtResource("3_dugkq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1.4149432, 0)
+
+[node name="Mesh_Mesh_head_geo_001_lambert2SG_001" parent="Almacen/Camion2/Tinkercad GLTF Scene/Node" parent_id_path=PackedInt32Array(1575906814, 2089924429) index="0" unique_id=970085284]
+transform = Transform3D(1, 2.4214387e-08, -5.376674e-24, -2.4214387e-08, 1, 0, 5.376674e-24, 0, 1, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_li7mn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Almacen/Camion2" unique_id=1405637163]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion2/StaticBody3D" unique_id=99187144]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.29271278, 0.9062605, -0.35894775)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Almacen/Camion2/StaticBody3D" unique_id=1633262613]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.3371123, 0.7387724, -0.9571285)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="Area3D2" type="Area3D" parent="Almacen/Camion2" unique_id=1607954794]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion2/Area3D2" unique_id=1669329133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26161814, 0.67677975, -2.0906258)
+shape = SubResource("BoxShape3D_5xu3i")
+
+[node name="Camion3" type="Node3D" parent="Almacen" unique_id=949298091]
+transform = Transform3D(-0.99998635, 0, 0.005228885, 0, 1, 0, -0.005228885, 0, -0.99998635, -8.2724085, 1.5263133, -11.624228)
+rotation_edit_mode = 2
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion3" unique_id=482066163]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion3/Area3D" unique_id=940149785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30913043, 0.7935095, -2.1353054)
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="Tinkercad GLTF Scene" parent="Almacen/Camion3" unique_id=1146276358 instance=ExtResource("3_dugkq")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, -1.4149432, 0)
+
+[node name="Mesh_Mesh_head_geo_001_lambert2SG_001" parent="Almacen/Camion3/Tinkercad GLTF Scene/Node" parent_id_path=PackedInt32Array(1146276358, 2089924429) index="0" unique_id=970085284]
+surface_material_override/0 = SubResource("StandardMaterial3D_li7mn")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Almacen/Camion3" unique_id=876524803]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion3/StaticBody3D" unique_id=2010069947]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.29271278, 0.9062605, -0.35894775)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Almacen/Camion3/StaticBody3D" unique_id=1503870315]
+transform = Transform3D(1, 0, 0, 0, 1.4477549, 0, 0, 0, 1, 0.3371123, 0.7387724, -0.9571285)
+shape = SubResource("BoxShape3D_iw3lg")
+
+[node name="Area3D2" type="Area3D" parent="Almacen/Camion3" unique_id=1729984333]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion3/Area3D2" unique_id=1392911992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26161814, 0.67677975, -2.0906258)
+shape = SubResource("BoxShape3D_5xu3i")
+
+[node name="NPC_Rivas" parent="." unique_id=1299426728 instance=ExtResource("2_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1982822, 0.9469967, 21.328806)
+mes_activacion = 11
+nombre_npc = "Rivas"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=638548037]
+script = ExtResource("5_f52ns")
+
+[node name="NPC_Sofia" parent="." unique_id=161226528 instance=ExtResource("2_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.58693695, 0.8534689, 19.289248)
+mes_activacion = 7
+nombre_npc = "Sofia"
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1154716614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.019218206, 1, 10.249882)
+script = ExtResource("2_yx7mw")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=969384063]
+transform = Transform3D(0.99999803, 0.0008137838, 0.0018010543, -0.00081657554, 0.99999845, 0.001541996, -0.0017997903, -0.0015434712, 0.99999714, 0, 1.5999999, 0)
+
+[node name="CajaEnMano" type="MeshInstance3D" parent="Player/Camera3D" unique_id=147784933]
+mesh = SubResource("BoxMesh_5xu3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=620603749]
+shape = SubResource("CapsuleShape3D_iw3lg")
+
+[node name="NPC_DonMateo" parent="." unique_id=537895496 instance=ExtResource("2_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.767348, 1.0312319, 19.989426)
+
+[node name="Tinkercad GLTF Scene" parent="NPC_DonMateo" unique_id=2045992493 instance=ExtResource("7_l5ukw")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 3.1201744, -0.73979425, -4.226843)
+
+[node name="GeneradorCajas" type="Node3D" parent="." unique_id=1658142785]
+script = ExtResource("4_6bm6p")
+
+[node name="NPC_Galarza" parent="." unique_id=2029953199 instance=ExtResource("2_2pltu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37503433, 0.87812996, 17.60385)
+mes_activacion = 9
+nombre_npc = "Galarza"
+
+[editable path="Almacen/Camion/Tinkercad GLTF Scene"]
+[editable path="Almacen/Camion2/Tinkercad GLTF Scene"]
+[editable path="Almacen/Camion3/Tinkercad GLTF Scene"]
