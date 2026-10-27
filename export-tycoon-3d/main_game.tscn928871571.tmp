@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://ccy42ykel7wb4"]
+
+[ext_resource type="Script" uid="uid://cyochq367rt4s" path="res://main_game.gd" id="1_1oj5k"]
+[ext_resource type="Script" uid="uid://dk8ws5t723jt1" path="res://area_3d.gd" id="2_ykeeq"]
+[ext_resource type="Script" uid="uid://c31lnd1k56dp8" path="res://player.gd" id="2_yx7mw"]
+[ext_resource type="Script" uid="uid://dnerewe4vc2u0" path="res://generador_cajas.gd" id="4_6bm6p"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iw3lg"]
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrw2j"]
+size = Vector3(4, 3, 6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7mtq"]
+albedo_color = Color(1, 0.19215687, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmtss"]
+size = Vector3(4, 3, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lrw2j"]
+size = Vector3(30, 0.2, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5xu3i"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iw3lg"]
+
+[node name="MainGame" type="Node3D" unique_id=2061055438]
+script = ExtResource("1_1oj5k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2109723240]
+
+[node name="BtnDilema" type="Button" parent="CanvasLayer" unique_id=1932838237]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BtnAct3" type="Button" parent="CanvasLayer" unique_id=1101857061]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1101133576]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LblEmpresa" type="Label" parent="CanvasLayer/Panel" unique_id=1115378823]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BtnAct2" type="Button" parent="CanvasLayer" unique_id=220245044]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BtnAct1" type="Button" parent="CanvasLayer" unique_id=544483687]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="LblLog" type="Label" parent="CanvasLayer" unique_id=2125209194]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LblPersonal" type="Label" parent="CanvasLayer" unique_id=536761885]
+offset_left = 647.0
+offset_top = 2.0
+offset_right = 687.0
+offset_bottom = 25.0
+
+[node name="LblSemanas" type="Label" parent="CanvasLayer" unique_id=941280274]
+offset_left = 1.0
+offset_top = 89.0
+offset_right = 41.0
+offset_bottom = 112.0
+
+[node name="LblMes" type="Label" parent="CanvasLayer" unique_id=1352612250]
+offset_top = 119.0
+offset_right = 40.0
+offset_bottom = 142.0
+
+[node name="LblReputacion" type="Label" parent="CanvasLayer" unique_id=1518822090]
+offset_left = 1.0
+offset_top = 57.0
+offset_right = 41.0
+offset_bottom = 80.0
+
+[node name="LblHonor" type="Label" parent="CanvasLayer" unique_id=794354976]
+offset_top = 30.0
+offset_right = 40.0
+offset_bottom = 53.0
+
+[node name="LblDinero" type="Label" parent="CanvasLayer" unique_id=579964493]
+offset_top = 619.0
+offset_right = 40.0
+offset_bottom = 642.0
+
+[node name="Almacen" type="Node3D" parent="." unique_id=794810618]
+
+[node name="Suelo" type="StaticBody3D" parent="Almacen" unique_id=273935832]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Suelo" unique_id=320815115]
+mesh = SubResource("BoxMesh_iw3lg")
+
+[node name="Camion3" type="Node3D" parent="Almacen/Suelo/MeshInstance3D" unique_id=1049685395]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Suelo/MeshInstance3D/Camion3" unique_id=906722575]
+mesh = SubResource("BoxMesh_lrw2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7mtq")
+
+[node name="Area3D" type="Area3D" parent="Almacen/Suelo/MeshInstance3D/Camion3" unique_id=1746813773]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Suelo/MeshInstance3D/Camion3/Area3D" unique_id=1446532072]
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Suelo" unique_id=1045569376]
+shape = SubResource("BoxShape3D_lrw2j")
+
+[node name="Camion" type="Node3D" parent="Almacen" unique_id=39705205]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Camion" unique_id=1476940061]
+mesh = SubResource("BoxMesh_lrw2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7mtq")
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion" unique_id=426612667]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion/Area3D" unique_id=1101917513]
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="Camion3" type="Node3D" parent="Almacen" unique_id=1742160557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.5, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Camion3" unique_id=79866349]
+mesh = SubResource("BoxMesh_lrw2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7mtq")
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion3" unique_id=951753243]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion3/Area3D" unique_id=550347491]
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="Camion2" type="Node3D" parent="Almacen" unique_id=649646997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Almacen/Camion2" unique_id=610087105]
+mesh = SubResource("BoxMesh_lrw2j")
+surface_material_override/0 = SubResource("StandardMaterial3D_f7mtq")
+
+[node name="Area3D" type="Area3D" parent="Almacen/Camion2" unique_id=1179587772]
+script = ExtResource("2_ykeeq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Almacen/Camion2/Area3D" unique_id=688595268]
+shape = SubResource("BoxShape3D_rmtss")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=638548037]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1154716614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+script = ExtResource("2_yx7mw")
+
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=969384063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="CajaEnMano" type="MeshInstance3D" parent="Player/Camera3D" unique_id=147784933]
+mesh = SubResource("BoxMesh_5xu3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=620603749]
+shape = SubResource("CapsuleShape3D_iw3lg")
+
+[node name="GeneradorCajas" type="Node3D" parent="." unique_id=1658142785]
+script = ExtResource("4_6bm6p")
